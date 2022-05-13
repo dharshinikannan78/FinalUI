@@ -1,0 +1,145 @@
+section {
+  height: 100vh;
+}
+.cardProperty{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 1.5%;
+    font-size: large;
+    color: #fff;
+  }
+  .adminLogin{
+    color: #a1a2a5;
+    cursor: pointer;
+    font-weight: 700;
+    float: right;
+  }
+  .adminLogin:hover{
+   color: #041f5f !important;
+   text-decoration: underline;
+ 
+  }
+  .my-label > label {
+    display: inline-block;
+    position: relative;
+  }
+  .my-label.required > label {
+    padding-right: 1em;
+  }
+  .my-label.required > label:before {
+    color: red;
+    content: "*";
+    position: absolute;
+    top: 0.01em;
+    right: 0.10em;
+  }
+
+h1{
+color: #03045E;
+text-align: center;
+font-weight: bold;
+font-family: sans-serif;
+position: relative;
+font-size: 250%;
+}
+label {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #457eff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.input-box {
+    border-radius: 50px;
+    border: 0.5px solid;
+    color: rgb(182, 180, 180);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+.form-control:focus {
+    border: 1px solid #dce0e2;
+    box-shadow: none;
+}
+::-webkit-file-upload-button {
+    color: white;
+    background: #f78366;
+    padding: 9px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    ::-webkit-file-upload-button:hover {
+        background-color: none !important;
+    }
+}
+input.ng-touched.ng-invalid {
+    border: 2px solid #d41616;
+    margin-bottom: 2%;
+}
+.submitButton button {
+    background-color: #5d8bf4;
+    color: white;
+    border: none;
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 15px 25px;
+    text-align: center;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.submitButton button:focus {
+    outline: none;
+}
+
+.submitButton button:hover {
+    background-color: #051367;
+}
+
+.submitButton button:active {
+    background-color: #81ccee;
+}
+.scrollbar
+{
+  height: 450px;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.force-overflow
+{
+  min-height: 500PX;
+}
+
+#style-1::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+
+#style-1::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #22577E;
+}
+.mr-0 {
+  margin-right: 0!important;
+}

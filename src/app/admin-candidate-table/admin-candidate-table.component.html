@@ -1,0 +1,227 @@
+<section class="cardDesign">
+    <mat-card class="cardProperty cardDesign">
+        <div class="row">
+            <div class="col d-flex justify-content-start">
+                <h1 class="m-0">CANDIDATE DETAILS</h1>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <button class="btn btn-primary" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </mat-card>
+
+    <diV class="container">
+        <div class="row mt-5 d-flex flex-row justify-content-around ">
+            <div class="col d-flex justify-content-start">
+                <button *ngIf="!Status" class="btn btn-danger " type="button"
+                    (click)="getarchiveDetails()">Archive</button>
+                <button *ngIf="Status" class="btn btn-danger" type="button" (click)="getAllDetails()">Active</button>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <div class="buttonView">
+                    <button (click)="getRegisterPage()" class="btn btn-primary"><i class="bi bi-plus-lg"></i>Add
+                    </button>
+                </div>
+                <input type="text" class="form-control searchBox" placeholder="Search" [(ngModel)]="searchValue">
+            </div>
+        </div>
+    </diV>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-md-3 col-sm-6 " *ngFor="let candidateList of getCandidateList | filter : searchValue "
+                class="example-card" data-toggle="modal" (click)="getCandidateDetails(candidateList)"
+                data-target="#bootstrapModel">
+                <mat-card appMaterialElevation raisedElevation="16">
+                    <mat-card-title>
+                        <div class="row mt-2">
+                            <div class="col-2">
+                                <i class="bi bi-person-circle iconView"> </i>
+                            </div>
+                            <div class="col-10 justify-content-center listViewStyle">
+                                {{candidateList.name}}
+                            </div>
+                        </div>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <div class="row mt-4">
+                            <div class="col-2">
+                                <i class="bi bi-envelope-fill iconView"></i>
+                            </div>
+                            <div class="col-10">
+                                {{candidateList.emailId}}
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-2">
+                                <i class="bi bi-telephone-fill iconView"></i>
+                            </div>
+                            <div class="col-5">
+                                {{candidateList.phoneNumber}}
+                            </div>
+                        </div>
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col ">
+                                <div class="apllicantView">
+                                    {{candidateList.applicantStatus}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <div class="modal" [style.display]="showModal ? 'block' : 'none'">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-white"> CANDIDATE DETAILS</h3>
+                    <button type="button" class="btn-close closebutton" (click)="showModal=false"></button>
+                </div>
+                <div class="modal-body" class="scrollbar" id="style-1">
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class=" form-label">Name</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.name">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Email Id</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.emailId">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Mobile Number</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.phoneNumber">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Education</label>
+                            <input class="form-control" disabled="disabled"
+                                [ngModel]="candidateDetails?.educationDetails">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Skill Sets</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.skillSet">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Current Position</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.currentRole">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Current Salary</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.currentCtc">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Country Residing</label>
+                            <input class="form-control" disabled="disabled"
+                                [ngModel]="candidateDetails?.countryResiding">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Citizenship</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.citizenship">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="form-label">Current City</label>
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.currentCity">
+                        </div>
+                    </div>
+                    <div class="row mt-2" *ngIf="isRemark  && !Status ">
+                        <label class="form-label"> Expected Salary</label>
+                        <div class="mb-3">
+                            <input class="form-control" (change)="onEditSave($event)"
+                                [ngModel]="candidateDetails?.expectedCtc">
+                        </div>
+                    </div>
+                    <div class="row mt-2" *ngIf="Status">
+                        <label class="form-label"> Expected Salary</label>
+                        <div class="mb-3">
+                            <input class="form-control" disabled="disabled" [ngModel]="candidateDetails?.expectedCtc">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label class="mt-2 form-label">Attachments</label>
+                            <app-attachmnets [CandidateId]="attachmentDetails">
+                            </app-attachmnets>
+                        </div>
+                    </div>
+                    <div class="row mt-2" *ngIf="isRemark  && !Status ">
+                        <label class="mb-3">Apllicant Status</label>
+                        <div>
+                            <select class="form-select" [ngModel]="candidateDetails?.applicantStatus"
+                                (change)="onChange($event)" required>
+                                <option value="Open">Open</option>
+                                <option value="InProgress">InProgress</option>
+                                <option value="Selected">Selected</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Waiting">Waiting</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2" *ngIf="Status">
+                        <label class="mb-3">Apllicant Status</label>
+                        <div>
+                            <select class="form-select" disabled="disabled"
+                                [ngModel]="candidateDetails?.applicantStatus" required>
+                                <option value="Open">Open</option>
+                                <option value="InProgress">InProgress</option>
+                                <option value="Selected">Selected</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Waiting">Waiting</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4" *ngIf="isRemark  && !Status ">
+                        <div class="mb-2">
+                            <label class="form-label">Remarks</label>
+                            <div class="col-12">
+                                <textarea class="form-control" (change)="onsaveRemark($event)"
+                                    [ngModel]="candidateDetails?.remarks"></textarea>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4" *ngIf="Status">
+                        <div class="mb-2">
+                            <label class="form-label">Remarks</label>
+                            <div class="col-12">
+                                <textarea class="form-control" disabled="disabled"
+                                    [ngModel]="candidateDetails?.remarks"></textarea>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button *ngIf=" !Status" type="button" (click)="IsArchieved()" class="btn btn-danger">Move to
+                        Archive</button>
+                    <button type="button" *ngIf=" !Status" class="btn btn-primary buttonClose"
+                        (click)="saveEditCandidateDetails()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

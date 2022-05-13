@@ -1,0 +1,13 @@
+<div *ngIf="isCreate">
+    <div *ngFor="let attachment of attachmentDetails">
+        <div class="row">
+            <div class="col-5  mt-3">
+                <button class=" btn btn-outline-primary" (click)="downloadAttachment(attachment?.attachmentId)"> <i
+                        class="bi bi-download"></i> {{attachment?.attachmentType}}</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

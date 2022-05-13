@@ -1,0 +1,31 @@
+<section class="wrap dcenter bg-beiege">
+    <div class="container p-5 bg-white">
+        <div class="row g-0">
+            <div class="col-md-7">
+                <img src="../../assets/login.jpg" alt="system picture" width="100%" height="100%">
+            </div>
+            <div class="col-md-5 bg-white">
+                <h1 class="title my-3">Admin Panel</h1>
+                <form class="mt-5" [formGroup]="loginForm" (ngSubmit)="adminCredentials(loginForm.value)">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text logoSpan"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" autocomplete="off" formControlName="username"
+                            placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                    </div>
+
+                    <button type="submit" [ngClass]="{ 'is-invalid': submitted}" [disabled]="thisAdminValid()"
+                        class="btn mt-4  my-3">Log
+                        in</button>
+
+                    <div style="margin-top: -5.5rem;" class="invalid-feedback">
+                        Incorrect UserName & Password
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
