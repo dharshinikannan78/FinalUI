@@ -4,6 +4,7 @@ import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
@@ -42,8 +43,10 @@ export class AdminPanelComponent implements OnInit {
     this.submitted = true;
     this.registrationService.postAdminLoginPanel(post).subscribe((data: any) => {
       this.bearerToken = JSON.parse(data);
+      console.log(this.bearerToken, 'kjhujguih');
       sessionStorage.setItem('token', this.bearerToken.token);
-      this.router.navigate(['table'])
+      console.log(sessionStorage.setItem, 'bearer');
+      this.router.navigate(['table']);
     });
     this.loginForm.reset()
   }

@@ -49,7 +49,7 @@ export class ApiService {
   }
 
   archiveStatus(status: any) {
-    return this.http.get(this.archive + status)
+    return this.http.get(this.archive + status, { headers: this.headers })
   }
 
   CandidateDetails(candidatePostData: any) {
@@ -58,7 +58,7 @@ export class ApiService {
 
   getcandidateDetails(): Observable<any> {
 
-    return this.http.get(this.candidateDetailsUrl)
+    return this.http.get(this.candidateDetailsUrl, { headers: this.headers })
 
   }
 
